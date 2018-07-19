@@ -7,13 +7,10 @@ namespace Lab4
         static void Main(string[] args)
         {
             Console.WriteLine("Learn your squares and cubes!");
-            bool repeat = false;
             do
             {
-                int userInput = TakeInput();
-                DisplayTable(userInput);
-                repeat = RequestRepeat();
-            } while (repeat);
+                DisplayTable(TakeInput());
+            } while (ShouldRepeat());
 
             Console.WriteLine("\nGoodbye!");
             Console.Read();
@@ -35,7 +32,7 @@ namespace Lab4
             }
         }
 
-        static bool RequestRepeat()
+        static bool ShouldRepeat()
         {
             Console.Write("\nContinue? (y/n): ");
             String userInput = Console.ReadLine().ToLower();
@@ -50,7 +47,7 @@ namespace Lab4
             else
             {
                 Console.WriteLine("Invalid input.");
-                return RequestRepeat();
+                return ShouldRepeat();
             }
         }
     }
